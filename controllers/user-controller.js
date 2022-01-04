@@ -8,7 +8,7 @@ const userController = {
     return Promise.all([
       User.findByPk(req.params.id, { raw: true }),
       Comment.findAndCountAll({
-        include: [User, Restaurant],
+        include: Restaurant,
         where: { userId: req.params.id },
         raw: true,
         nest: true
